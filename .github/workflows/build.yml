@@ -144,10 +144,8 @@ jobs:
           path: ImmortalWrt
 
       - name: 复制当前仓库的配置文件到 ImmortalWrt 仓库  (Copy current repo config to ImmortalWrt repo)
-        run: |
-          cp -f .config feeds.conf.default diy1.sh diy2.sh ImmortalWrt/
-          cd ImmortalWrt && ./scripts/feeds update -a && ./scripts/feeds install -a
-
+        run: cp -f .config feeds.conf.default diy1.sh diy2.sh ImmortalWrt/
+         
 #      - name: 开启 SSH 服务 (Start SSH service)
 #        uses: lhotari/action-upterm@v1
 #        with:
