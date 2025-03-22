@@ -2,4 +2,6 @@
 # Please enter the custom command below (usually used to install third-party plugins) (can be left blank)
 # git clone --depth=1 https://github.com/EOYOHOO/UA2F.git package/UA2F
 # git clone --depth=1 https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+cd ImmortalWrt
+#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+make defconfig
