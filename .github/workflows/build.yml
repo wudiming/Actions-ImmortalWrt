@@ -80,12 +80,13 @@ jobs:
         run: |
           chmod +x diy2.sh
           ./diy2.sh
-#          make defconfig
+          make defconfig
 
       - name: 编译前上传配置 (Upload config before build)
         uses: actions/upload-artifact@v4
         with:
           name: config-before-build
+          include-hidden-files: true
           path: |
             ImmortalWrt/.config
             ImmortalWrt/feeds.conf.default
@@ -159,6 +160,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: config-before-build
+          include-hidden-files: true
           path: |
             ImmortalWrt/.config
             ImmortalWrt/feeds.conf.default
