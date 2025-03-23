@@ -7,4 +7,5 @@ cd ImmortalWrt
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 rm -rf feeds/packages/net/mosdns && cp -rf ./feeds/smpackage/mosdns ./feeds/packages/net/mosdns
 ./scripts/feeds install -a
+cp -f ../.config .config
 make defconfig
