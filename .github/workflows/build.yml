@@ -106,6 +106,15 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 300
 
+      - name: 判断运行是否成功 (Determine whether the operation is successful)
+        run: |
+         if [ -f ImmortalWrt/bin/targets ]; then
+          echo "Compile Succeed!"
+         else
+          echo "Compile Failed!"
+          exit 1
+         fi
+         
       - name: 上传编译结果到 Artifact (Upload build result to Artifact)
         uses: actions/upload-artifact@v4
         with:
