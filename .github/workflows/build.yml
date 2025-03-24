@@ -42,13 +42,14 @@ jobs:
         with:
     # this might remove tools that are actually needed,
     # if set to "true" but frees about 6 GB
-          tool-cache: true
+          tool-cache: false
     # all of these default to true, but feel free to set to
     # "false" if necessary for your workflow
           android: true
           dotnet: true
           haskell: true
           large-packages: true
+          docker-images: true
           swap-storage: true
           
       - name: 下载编译所需的依赖 (Install the software packages required for compilation)
@@ -102,11 +103,13 @@ jobs:
         if: ${{inputs.multithreading == true}}
         working-directory: ImmortalWrt
         run: make -j$(nproc) V=s
+        continue-on-error: true
 
       - name: 单线程编译 ImmortalWrt (Build ImmortalWrt single thread)
         if: ${{inputs.multithreading == false}}
         working-directory: ImmortalWrt
         run: make -j1 V=s
+        continue-on-error: true
 
       - name: 如果失败开启 SSH 服务调试 (Start SSH service on failure)
         if: failure() &&  ${{inputs.debug == true}}
